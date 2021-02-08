@@ -1,0 +1,42 @@
+﻿{
+  "ProviderId": "Microsoft.VisualStudio.ConnectedService.Wcf",
+  "Version": "15.0.40203.910",
+  "GettingStartedDocument": {
+    "Uri": "https://go.microsoft.com/fwlink/?linkid=858517"
+  },
+  "ExtendedData": {
+    "inputs": [
+      "http://www.lb.lt/webservices/ExchangeRates/ExchangeRates.asmx?WSDL"
+    ],
+    "collectionTypes": [
+      "System.Array",
+      "System.Collections.Generic.Dictionary`2"
+    ],
+    "namespaceMappings": [
+      "*, LTBank"
+    ],
+    "references": [
+      "Microsoft.AspNetCore.NodeServices, {Microsoft.AspNetCore.NodeServices, 3.1.10}",
+      "Microsoft.AspNetCore.SpaServices, {Microsoft.AspNetCore.SpaServices, 3.1.10}",
+      "Microsoft.AspNetCore.SpaServices.Extensions, {Microsoft.AspNetCore.SpaServices.Extensions, 3.1.10}",
+      "Microsoft.Extensions.Configuration, {Microsoft.Extensions.Configuration, 3.1.10}",
+      "Microsoft.Extensions.Configuration.Abstractions, {Microsoft.Extensions.Configuration.Abstractions, 3.1.10}",
+      "Microsoft.Extensions.Configuration.Binder, {Microsoft.Extensions.Configuration.Binder, 3.1.10}",
+      "Microsoft.Extensions.DependencyInjection, {Microsoft.Extensions.DependencyInjection, 3.1.10}",
+      "Microsoft.Extensions.DependencyInjection.Abstractions, {Microsoft.Extensions.DependencyInjection.Abstractions, 3.1.10}",
+      "Microsoft.Extensions.FileProviders.Abstractions, {Microsoft.Extensions.FileProviders.Abstractions, 3.1.10}",
+      "Microsoft.Extensions.FileProviders.Physical, {Microsoft.Extensions.FileProviders.Physical, 3.1.10}",
+      "Microsoft.Extensions.FileSystemGlobbing, {Microsoft.Extensions.FileSystemGlobbing, 3.1.10}",
+      "Microsoft.Extensions.Logging, {Microsoft.Extensions.Logging, 3.1.10}",
+      "Microsoft.Extensions.Logging.Abstractions, {Microsoft.Extensions.Logging.Abstractions, 3.1.10}",
+      "Microsoft.Extensions.Logging.Configuration, {Microsoft.Extensions.Logging.Configuration, 3.1.10}",
+      "Microsoft.Extensions.Logging.Console, {Microsoft.Extensions.Logging.Console, 3.1.10}",
+      "Microsoft.Extensions.Options, {Microsoft.Extensions.Options, 3.1.10}",
+      "Microsoft.Extensions.Options.ConfigurationExtensions, {Microsoft.Extensions.Options.ConfigurationExtensions, 3.1.10}",
+      "Microsoft.Extensions.Primitives, {Microsoft.Extensions.Primitives, 3.1.10}",
+      "Newtonsoft.Json, {Newtonsoft.Json, 12.0.2}"
+    ],
+    "targetFramework": "netcoreapp3.1",
+    "typeReuseMode": "All"
+  }
+}
