@@ -16,9 +16,9 @@ namespace BIT.NET.LbankWCF.Controllers
     public class ChangeRateController : ControllerBase
     {
        
-        private readonly IChangeRate _changerate;
+        private readonly IChangeRateService _changerate;
 
-        public ChangeRateController(IChangeRate changerate)
+        public ChangeRateController(IChangeRateService changerate)
         {
             _changerate = changerate;
         }
@@ -27,9 +27,7 @@ namespace BIT.NET.LbankWCF.Controllers
         public async Task<List<CurrencyItemDTO>> Get(string date)
         {
 
-            var changeRateDto = await _changerate.ChangeCalc(date);
-
-            var rate = "";
+            var changeRateDto = await _changerate.ChangeCalc(date);          
 
 
             return changeRateDto;

@@ -5,13 +5,14 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Xml;
 using static LTBank.ExchangeRatesSoapClient;
 
 namespace BIT.NET.LbankWCF.Services
 {
-    public class ChangeRate : IChangeRate
+    public class ChangeRateService : IChangeRateService
     {
         public async Task<List<CurrencyItemDTO>> ChangeCalc(string date)
         {
@@ -28,7 +29,7 @@ namespace BIT.NET.LbankWCF.Services
 
             for (int i = 0; i < resultNow.Count; i++)
             {
-                var temp = new CurrencyItemDTO
+                var tempDTO = new CurrencyItemDTO
                 {
                     Currency = resultNow[i].Currency,
                     Quantity = resultNow[i].Quantity,
@@ -36,30 +37,32 @@ namespace BIT.NET.LbankWCF.Services
                     Change = Math.Round(((resultNow[i].Rate - resultBefore[i].Rate) / resultBefore[i].Rate * 100),4)
                 };
 
-                result.Add(temp);
+                result.Add(tempDTO);
             }
-            return result;
+            
+            return result.OrderByDescending(o => o.Change).ToList();
         }
 
         private async Task<List<CurrencyItem>> GetFromSoap(string date)
         {
             var client = new ExchangeRatesSoapClient(EndpointConfiguration.ExchangeRatesSoap);
 
-            var responseNow = await client.getExchangeRatesByDateAsync(date);
+            var response = await client.getExchangeRatesByDateAsync(date);
 
             var resultList = new List<CurrencyItem>();
 
-            foreach (XmlNode item in responseNow.ChildNodes)
+            foreach (XmlNode item in response.ChildNodes)
             {
-                var tmp = new CurrencyItem ()
+                var tempCurrencyItem = new CurrencyItem ()
                 {
                     Currency = item["currency"].InnerText,
                     Quantity = Convert.ToInt32(item["quantity"].InnerText),
                     Rate = double.Parse(item["rate"].InnerText, System.Globalization.CultureInfo.InvariantCulture)
                 };
 
-                resultList.Add(tmp);
+                resultList.Add(tempCurrencyItem);
             };
+
             return resultList;
         }
     }

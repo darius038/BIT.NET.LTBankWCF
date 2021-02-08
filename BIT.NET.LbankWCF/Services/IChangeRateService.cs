@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BIT.NET.LbankWCF.Services
 {
-    public interface IChangeRate
+    public interface IChangeRateService
     {
         Task<List<CurrencyItemDTO>> ChangeCalc(string date);
     }
