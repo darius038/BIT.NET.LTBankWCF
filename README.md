@@ -1,4 +1,4 @@
-## Result
+##  
 Published working app [here](https://bitnetlbankwcf20210208135852.azurewebsites.net/).
 ##### Short description of used stack
  - Backend: ASP.NET core 3.1 webapi
